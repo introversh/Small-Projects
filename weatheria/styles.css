@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Raleway', sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            background: #000;
+            color: #bbb;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .title {
+            font-size: 32px;
+            font-weight: 500;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        .starry-night {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: black;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            animation: twinkle 5s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+        .container {
+            width: 100%;
+            max-width: 550px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        .weather-card {
+            background: #111;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+            width: 100%;
+        }
+        .search {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 10px;
+            border-radius: 10px;
+            background: #222;
+        }
+        .search input {
+            flex: 1;
+            padding: 14px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            background: #222;
+            color: #888;
+            transition: 0.3s;
+        }
+        .search input:focus {
+            background: #222;
+        }
+        .search button {
+            background: #222;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                height: 40px;
+                width: 40px;
+            }
+        }
+        .search button:hover {
+            transform: scale(1.1);
+        }
+        .weather {
+            display: none;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .error {
+            display: none;
+            color: red;
+            margin-top: 15px;
+        }
+        .details {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        .col {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .col img {
+            width: 50px;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @media (max-width: 600px) {
+            .weather-card {
+                padding: 30px;
+            }
+            .search input {
+                font-size: 14px;
+            }
+            .details {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
