@@ -1,4 +1,3 @@
-<!-- Stop checking my code -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="app-name">Weatheria</div>
+        <div class="nav-right">
+            <a href="http://127.0.0.1:5501/Simple-Portfolio/index.html" class="btn">About Me</a>
+            <div id="liveTime" class="live-time"></div>
+        </div>
+    </nav>
+
     <div class="starry-night"></div>
     <h1 class="title">Weatheria</h1>
     <div class="container">
@@ -41,5 +49,17 @@
         </div>
     </div>
     <script src="script.js"></script>
+    <!-- Live Time Script -->
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, "0");
+            const minutes = String(now.getMinutes()).padStart(2, "0");
+            const seconds = String(now.getSeconds()).padStart(2, "0");
+            document.getElementById("liveTime").textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
 </body>
 </html>
